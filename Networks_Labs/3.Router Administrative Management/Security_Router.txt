@@ -1,0 +1,78 @@
+! Encrypts passwords configured with the "password" command
+! so they don't appear in clear text in the running-config
+service password-encryption
+
+! Enforces a minimum password length of 8 characters
+security passwords min-length 8
+
+! Sets the privileged EXEC (enable) password
+! Stored as a secure hash
+enable secret StrongPassword
+
+! Creates a local administrator account
+! privilege 15 = full administrative access
+username admin privilege 15 secret StrongPassword
+
+! Displays a legal warning message before login
+banner motd #Authorized users only#
+
+! Disables the HTTP management server
+! Reduces attack surface
+no ip http server
+
+! Disables HTTPS management server
+! Enable only if web management is needed
+no ip http secure-server
+
+! Prevents the router from trying DNS lookups
+! when an invalid command is entered
+no ip domain-lookup
+
+! If 3 login failures occur within 30 seconds,
+! block new login attempts for 180 seconds
+login block-for 180 attempts 3 within 30
+
+! Log successful login attempts
+login on-success log
+
+! Log failed login attempts
+login on-failure log
+
+! Required for RSA key generation and SSH
+ip domain-name lab.local
+
+! Generates RSA keys for SSH
+! 2048-bit keys provide strong encryption
+crypto key generate rsa modulus 2048
+
+! Forces the use of SSH version 2 only
+ip ssh version 2
+
+! Configure the physical console port
+line console 0
+
+ ! Prevent log messages from interrupting typing
+ logging synchronous
+
+ ! Automatically disconnect idle users after 5 minutes
+ exec-timeout 5 0
+
+ ! Use the local username database for authentication
+ login local
+
+exit
+
+! Configure all remote access lines (VTY)
+line vty 0 15
+
+ ! Authenticate users against the local user database
+ login local
+
+ ! Allow only SSH remote access
+ ! Telnet is disabled
+ transport input ssh
+
+ ! Disconnect idle SSH sessions after 5 minutes
+ exec-timeout 5 0
+
+exit
