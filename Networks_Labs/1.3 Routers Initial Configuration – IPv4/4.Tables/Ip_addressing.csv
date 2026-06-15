@@ -1,0 +1,9 @@
+Device,Interface,IP Address,Subnet Mask,Gateway,Description,VLAN
+R1,GigabitEthernet0/0,192.168.1.1,255.255.255.0,,WAN to ISP,
+  ,GigabitEthernet0/1,10.0.0.1,255.255.255.252,,Link to R2,
+R2,GigabitEthernet0/0,10.0.0.2,255.255.255.252,,Link to R1,
+  ,GigabitEthernet0/1,10.0.1.1,255.255.255.252,,Link to R3,
+  ,GigabitEthernet0/2,172.16.0.1,255.255.255.0,,Internal LAN,
+R3,GigabitEthernet0/0,10.0.1.2,255.255.255.252,,Link to R2,
+  ,GigabitEthernet0/1,10.0.2.1,255.255.255.0,,Branch LAN,
+  ,GigabitEthernet0/2,10.0.3.1,255.255.255.252,,DMZ,
