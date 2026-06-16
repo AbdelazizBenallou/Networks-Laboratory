@@ -1,0 +1,8 @@
+Device,Interface,IP Address,Subnet Mask,Gateway,Description,VLAN
+R1,Fast1/0,172.16.16.254,255.255.255.0,,Link to R2,
+  ,Fast0/0,192.168.100.254,255.255.255.0,,Link to Lan,
+R2,Fast1/0,172.16.16.253,255.255.255.0,,Link to R1,
+  ,Fast0/0,192.168.5.254,255.255.255.0,,Link to Lan,
+  ,Serial2/0,11.25.127.1,255.255.255.252,,Link to R3,
+R3,Fast0/0,192.168.10.254,255.255.255.0,,Link to Lan,
+  ,Serial2/0,11.25.127.2,255.255.255.252,,Link to R2,

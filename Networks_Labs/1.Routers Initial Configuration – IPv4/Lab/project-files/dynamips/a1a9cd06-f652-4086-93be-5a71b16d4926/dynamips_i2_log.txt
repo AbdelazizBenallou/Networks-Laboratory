@@ -1,0 +1,72 @@
+Jun 02 00:16:09.155 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Jun 02 00:16:09.155 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 51481.
+Jun 02 00:16:09.160 HYPERVISOR: exec_cmd: hypervisor version 
+Jun 02 00:16:09.166 HYPERVISOR: exec_cmd: hypervisor working_dir /home/patrik/GNS3/projects/Simple_Lab/project-files/dynamips 
+Jun 02 00:16:09.166 GENERAL: working_dir=/home/patrik/GNS3/projects/Simple_Lab/project-files/dynamips
+Jun 02 00:16:09.166 HYPERVISOR: exec_cmd: hypervisor working_dir /home/patrik/GNS3/projects/Simple_Lab/project-files/dynamips/18fb1feb-9530-4c88-a3a1-c5cb78d383d5 
+Jun 02 00:16:09.166 GENERAL: working_dir=/home/patrik/GNS3/projects/Simple_Lab/project-files/dynamips/18fb1feb-9530-4c88-a3a1-c5cb78d383d5
+Jun 02 00:16:09.167 HYPERVISOR: exec_cmd: vm create R2 2 c7200 
+Jun 02 00:16:09.167 VM: VM R2 created.
+Jun 02 00:16:09.168 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5001 
+Jun 02 00:16:09.168 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2 
+Jun 02 00:16:09.171 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:16:09.172 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-FE 
+Jun 02 00:16:09.173 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Jun 02 00:16:09.174 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:16:09.174 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x606e0000 
+Jun 02 00:16:09.175 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:16:09.176 HYPERVISOR: exec_cmd: c7200 set_mac_addr R2 ca02.568c.0000 
+Jun 02 00:16:09.177 HYPERVISOR: exec_cmd: vm set_nvram R2 512 
+Jun 02 00:16:09.178 HYPERVISOR: exec_cmd: vm set_ram R2 512 
+Jun 02 00:16:09.179 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:16:09.179 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 PA-2FE-TX 
+Jun 02 00:16:09.180 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:16:09.180 HYPERVISOR: exec_cmd: vm slot_add_binding R2 2 0 PA-4T+ 
+Jun 02 00:16:10.101 HYPERVISOR: exec_cmd: nio create_udp udp-3fed4b2d-0c29-4fa6-adcf-638fb51a5f88 10004 127.0.0.1 10005 
+Jun 02 00:16:10.346 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 2 0 udp-3fed4b2d-0c29-4fa6-adcf-638fb51a5f88 
+Jun 02 00:16:10.347 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:16:10.636 HYPERVISOR: exec_cmd: nio create_udp udp-735eb2fd-f31b-4862-aba9-bcfaa71ad508 10008 127.0.0.1 10009 
+Jun 02 00:16:10.640 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-735eb2fd-f31b-4862-aba9-bcfaa71ad508 
+Jun 02 00:16:10.640 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:17:56.713 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:17:57.359 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:17:57.768 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:18:23.155 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:18:23.156 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding R2 2 0 
+Jun 02 00:18:23.159 HYPERVISOR: exec_cmd: nio delete udp-3fed4b2d-0c29-4fa6-adcf-638fb51a5f88 
+Jun 02 00:20:33.300 HYPERVISOR: exec_cmd: nio create_udp udp-60a06c2b-fd90-45ba-9674-92bd9cfa1e99 10022 127.0.0.1 10023 
+Jun 02 00:20:33.303 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 1 0 udp-60a06c2b-fd90-45ba-9674-92bd9cfa1e99 
+Jun 02 00:20:33.303 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:21:02.815 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:27:23.730 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:27:24.999 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:27:27.296 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:38:24.592 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:38:34.920 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:43:18.558 HYPERVISOR: exec_cmd: vm create Ghost 0 c7200 
+Jun 02 00:43:18.558 VM: VM Ghost created.
+Jun 02 00:43:18.560 HYPERVISOR: exec_cmd: vm set_ios Ghost /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 00:43:18.560 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Jun 02 00:43:18.561 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost /home/patrik/GNS3/projects/Simple_Lab/project-files/dynamips/c7200-adventerprisek9-mz.124-24.T5.image-512.ghost 
+Jun 02 00:43:18.562 HYPERVISOR: exec_cmd: vm set_ram Ghost 512 
+Jun 02 00:43:18.562 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Jun 02 00:43:18.563 HYPERVISOR: exec_cmd: vm set_config Ghost configs/i0_startup-config.cfg 
+Jun 02 00:43:18.564 HYPERVISOR: exec_cmd: vm start Ghost 
+Jun 02 00:43:19.040 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Jun 02 00:43:19.041 HYPERVISOR: exec_cmd: vm stop Ghost 
+Jun 02 00:43:19.199 VM: VM Ghost shutdown.
+Jun 02 00:43:19.200 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Jun 02 00:43:19.201 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Jun 02 00:43:19.201 VM: VM Ghost destroyed.
+Jun 02 00:43:19.202 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Jun 02 00:43:19.203 HYPERVISOR: exec_cmd: vm set_ghost_file R2 /home/patrik/GNS3/projects/Simple_Lab/project-files/dynamips/c7200-adventerprisek9-mz.124-24.T5.image-512.ghost 
+Jun 02 00:43:19.203 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 00:43:19.204 HYPERVISOR: exec_cmd: vm set_config R2 configs/i2_startup-config.cfg 
+Jun 02 00:43:19.204 HYPERVISOR: exec_cmd: vm start R2 
+Jun 02 00:43:49.463 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 02 00:44:19.459 HYPERVISOR: exec_cmd: vm extract_config R2 
+Jun 02 02:11:04.658 HYPERVISOR: exec_cmd: vm set_ios R2 /home/patrik/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.image 
+Jun 02 02:16:26.003 HYPERVISOR: exec_cmd: vm get_status R2 
+Jun 02 02:16:26.005 HYPERVISOR: exec_cmd: vm stop R2 
+Jun 02 02:16:26.156 VM: VM R2 shutdown.
+Jun 02 02:16:26.158 HYPERVISOR: exec_cmd: vm extract_config R2 
