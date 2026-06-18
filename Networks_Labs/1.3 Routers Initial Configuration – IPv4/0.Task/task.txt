@@ -1,7 +1,0 @@
-3 Routers Initial Configuration – IPv4
-Task
-1. Configure routers with IP address as shown in topology
-2. Configure enable password as ccna and device access password as cisco
-3. Configure 16 remote access sessions for routers.
-4. Remote session should log off after 1 min of idle timeout.
-5. Configure PC with IP address and default gateway. 
