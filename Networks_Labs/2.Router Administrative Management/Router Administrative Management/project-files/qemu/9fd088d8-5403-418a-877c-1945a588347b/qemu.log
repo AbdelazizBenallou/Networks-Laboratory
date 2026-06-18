@@ -1,0 +1,5 @@
+Start QEMU with /bin/qemu-system-x86_64 -name Tacacs+-1 -m 256M -smp cpus=1,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive 'file=/home/patrik/Desktop/Final-Net-Labs/2.Router Administrative Management/Router Administrative Management/project-files/qemu/9fd088d8-5403-418a-877c-1945a588347b/hda_disk.qcow2,if=ide,index=0,media=disk,id=drive0' -uuid 9fd088d8-5403-418a-877c-1945a588347b -serial telnet:127.0.0.1:5009,server,nowait -monitor tcp:127.0.0.1:45947,server,nowait -net none -device e1000,mac=0c:d0:88:d8:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:10037,localaddr=127.0.0.1:10036 -display none
+
+Execution log:
+qemu-system-x86_64: warning: host doesn't support requested feature: CPUID.80000001H:ECX.svm [bit 2]
+qemu-system-x86_64: terminating on signal 15 from pid 3618 (/usr/share/gns3/gns3-server/bin/python)

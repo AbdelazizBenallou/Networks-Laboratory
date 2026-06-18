@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Checklist</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--color-background-primary,#fff);color:var(--color-text-primary,#1a1a1a);padding:20px;max-width:700px;margin:0 auto}
+.card{border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;margin-bottom:16px}
+.card-header{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #e0e0e0;background:#f8f8f8}
+.badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.title{font-size:15px;font-weight:500}
+.count{margin-left:auto;font-size:12px;color:#888}
+.task{display:flex;align-items:flex-start;gap:10px;padding:12px 16px;border-bottom:1px solid #f0f0f0;cursor:pointer;transition:background .15s}
+.task:last-child{border-bottom:none}
+.task:hover{background:#f5f5f5}
+.cb{width:20px;height:20px;border:2px solid #ccc;border-radius:5px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.cb.done{background:#22c55e;border-color:#22c55e}
+.cb.done::after{content:'';display:block;width:5px;height:9px;border:2px solid #fff;border-top:none;border-left:none;transform:rotate(45deg) translateY(-1px)}
+.txt{font-size:14px;line-height:1.5;flex:1}
+.txt.done{color:#999;text-decoration:line-through}
+.device{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;margin-right:4px;background:#eef2ff;color:#4338ca}
+.progress{height:6px;background:#eee;border-radius:3px;margin:16px 0;overflow:hidden}
+.fill{height:100%;background:#22c55e;border-radius:3px;transition:width .3s}
+.summary{display:flex;gap:12px;margin-bottom:16px}
+.stat{flex:1;text-align:center;padding:12px;background:#f8f8f8;border-radius:10px}
+.stat-num{font-size:24px;font-weight:600}
+.stat-lbl{font-size:12px;color:#888;margin-top:2px}
+</style>
+</head>
+<body>
+
+
+<div class="summary">
+  <div class="stat"><div class="stat-num" id="done">0</div><div class="stat-lbl">completed</div></div>
+  <div class="stat"><div class="stat-num" id="left">24</div><div class="stat-lbl">remaining</div></div>
+  <div class="stat"><div class="stat-num" id="pct">0%</div><div class="stat-lbl">progress</div></div>
+</div>
+<div class="progress"><div class="fill" id="prog" style="width:0%"></div></div>
+
+
+<div class="card">
+  <div class="card-header">
+    <span class="badge">Task 1</span>
+    <span class="title">Create users and passwords</span>
+    <span class="count" id="c1">0 / 4</span>
+  </div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">HQ</span>Create User1 / Pass@1 and User2 / Pass@2</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">ISP</span>Create User1 / Pass@1 and User2 / Pass@2</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">BR</span>Create User1 / Pass@1 and User2 / Pass@2</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">Cloud</span>Create User1 / Pass@1 and User2 / Pass@2</div></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <span class="badge">Task 2</span>
+    <span class="title">Encrypt passwords</span>
+    <span class="count" id="c2">0 / 4</span>
+  </div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">HQ</span>Encrypt clear text passwords and set MD5 enable password</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">ISP</span>Encrypt clear text passwords and set MD5 enable password</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">BR</span>Encrypt clear text passwords and set MD5 enable password</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">Cloud</span>Encrypt clear text passwords and set MD5 enable password</div></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <span class="badge">Task 3</span>
+    <span class="title">Password policy</span>
+    <span class="count" id="c3">0 / 4</span>
+  </div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">HQ</span>Set minimum password length to 8 characters</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">ISP</span>Set minimum password length to 8 characters</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">BR</span>Set minimum password length to 8 characters</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">Cloud</span>Set minimum password length to 8 characters</div></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <span class="badge">Task 4</span>
+    <span class="title">Login blocking policy</span>
+    <span class="count" id="c4">0 / 4</span>
+  </div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">HQ</span>Block user for 120 sec after 2 failed logins within 30 sec</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">ISP</span>Block user for 120 sec after 2 failed logins within 30 sec</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">BR</span>Block user for 120 sec after 2 failed logins within 30 sec</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">Cloud</span>Block user for 120 sec after 2 failed logins within 30 sec</div></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <span class="badge">Task 5</span>
+    <span class="title">Enable SSH</span>
+    <span class="count" id="c5">0 / 4</span>
+  </div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">HQ</span>Configure SSH for remote access</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">ISP</span>Configure SSH for remote access</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">BR</span>Configure SSH for remote access</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">Cloud</span>Configure SSH for remote access</div></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <span class="badge">Task 6</span>
+    <span class="title">Clock and timezone</span>
+    <span class="count" id="c6">0 / 4</span>
+  </div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">HQ</span>Set clock and timezone</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">ISP</span>Set clock and timezone</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">BR</span>Set clock and timezone</div></div>
+<div class="task" onclick="toggle(this)"><div class="cb"></div><div class="txt"><span class="device">Cloud</span>Set clock and timezone</div></div>
+</div>
+
+<script>
+const phases=[4,4,4,4,4,4];
+const total=phases.reduce((a,b)=>a+b,0);
+function toggle(row){
+  const cb=row.querySelector('.cb');
+  const txt=row.querySelector('.txt');
+  const done=cb.classList.toggle('done');
+  txt.classList.toggle('done',done);
+  update();
+}
+function update(){
+  const all=document.querySelectorAll('.task');
+  const doneCount=[...all].filter(r=>r.querySelector('.cb.done')).length;
+  const left=total-doneCount;
+  const pct=Math.round((doneCount/total)*100);
+  document.getElementById('done').textContent=doneCount;
+  document.getElementById('left').textContent=left;
+  document.getElementById('pct').textContent=pct+'%';
+  document.getElementById('prog').style.width=pct+'%';
+  let offset=0;
+  phases.forEach((count,i)=>{
+    const rows=[...document.querySelectorAll('.task')].slice(offset,offset+count);
+    const d=rows.filter(r=>r.querySelector('.cb.done')).length;
+    document.getElementById('c'+(i+1)).textContent=d+' / '+count;
+    offset+=count;
+  });
+}
+</script></body></html>

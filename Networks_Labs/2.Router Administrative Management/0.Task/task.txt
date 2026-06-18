@@ -1,0 +1,8 @@
+Task
+1. Create 2 users – User1 & User2 with password as Pass@1 & Pass@2
+2. Encrypt clear text passwords and create MD5 encryption for enable password.
+3. Create policy for minimum length password of 8 character.
+4. Create policy to block the user for 120 sec when 2 login attempt fails within 30
+sec.
+5. Enable SSH for remote access.
+6. Set clock and time zone
